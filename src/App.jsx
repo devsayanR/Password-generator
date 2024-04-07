@@ -25,6 +25,10 @@ function App() {
     passwordRef.current?.select();
     // passwordRef.current?.setSelectionRange(0, 999);
     window.navigator.clipboard.writeText(password)
+    document.getElementById('copy-btn').innerText = 'Copied'
+    setTimeout(() => {
+      document.getElementById('copy-btn').innerText = 'Copy'
+    },1000)
   }, [password])
 
   useEffect(() => {
@@ -43,7 +47,7 @@ function App() {
             placeholder='Password'
             readOnly
           />
-          <button className='bg-[#1D4ED8] text-white px-2' onClick={()=>copyPasswordToClipboard()}>Copy</button>
+          <button id='copy-btn'  className='bg-[#1D4ED8] text-white px-2' onClick={() => copyPasswordToClipboard()}>Copy</button>
         </div>
         <div className='flex items-center'>
           <input type="range" min={6} max={100} value={length} className='cursor-pointer outline-none border-none' onChange={(e) => setLength(e.target.value)} ref={passwordRef} />
