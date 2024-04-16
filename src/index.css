@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    background-color: #393737;
+}
+
+@media  screen and (max-width: 470px) {
+
+    body{
+        background-color: #02131A;
+    }
+}
