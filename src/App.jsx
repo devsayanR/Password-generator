@@ -1,4 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [password, setPassword] = useState("")
@@ -26,6 +28,7 @@ function App() {
     // passwordRef.current?.setSelectionRange(0, 999);
     window.navigator.clipboard.writeText(password)
     document.getElementById('copy-btn').innerText = 'Copied'
+    toast("Password copied to clipboard")
     setTimeout(() => {
       document.getElementById('copy-btn').innerText = 'Copy'
     }, 1000)
@@ -66,6 +69,10 @@ function App() {
           </div>
           <button id='copy-btn' className='bg-[#1D4ED8] text-white px-2 w-full mt-5 py-2' onClick={() => copyPasswordToClipboard()}>Copy</button>
         </div>
+        <ToastContainer
+          theme='dark'
+          draggable
+        />
       </div>
     </>
   )
